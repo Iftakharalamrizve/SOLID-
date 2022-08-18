@@ -24,7 +24,16 @@ class Output{
         let listOfItem: MultipleItemTypes = [this.bookItem, this.waterBottole, this.macBookKeyboard];
         return priceCalculateService.calculateCustomerPurchaseAmount(listOfItem,this.numberOfBag,this.tax);
     }
+
+    public makeCustomerPayment(payMethod: string): boolean
+    {
+        let totalPurchaseAmount: number = this.totalPurchasedAmount();
+
+        return true
+    }
+
+    
 }
 
 let outPutRun = new Output();
-console.log(outPutRun.totalPurchasedAmount());
+outPutRun.totalPurchasedAmount();
