@@ -20,7 +20,6 @@ export default class ItemPriceCalculationService{
         if(totalBagNumber > 2){
             this.plasticBagPrice = this.plasticBagPrice * 0.5;
         }
-        
     }
 
     public calculateCustomerPurchaseAmount(listOfItem : MultipleItemTypes, numberOfBag: number, tax: number): number
