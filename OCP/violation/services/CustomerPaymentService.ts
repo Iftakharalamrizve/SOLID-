@@ -1,22 +1,22 @@
-class Payment{
-    public payWithCash(){
-    // handle cash pay logic here
-    }
-    public payWithCredit(){
-    // handle credit pay logic here
-    }
-}
+import Logger from "../logger/Loger";
+import Payment from "../models/PaymentModel";
 
-class CustomerPaymentService{
+class CustomerPaymentService {
 
-    public  makePayment(payMethod: string) {
+    public makePayment(payMethod: string, payAmount: number) 
+    {
         const payment = new Payment();
-        
-        if(payMethod === 'cash'){
-            payment.payWithCash();
-        } else if(payMethod === 'credit'){
-            payment.payWithCredit();
+        if (payMethod === 'cash') {
+            payment.payWithCash(payAmount);
+            Logger.info("Cash pay successfully  Completed");
+            return true;
+        } else if (payMethod === 'card') {
+            payment.payWithCredit(payAmount);
+            Logger.info("Card pay successfully  Completed");
+            return true;
         }
+        return false;
     }
 
 }
+export default CustomerPaymentService;

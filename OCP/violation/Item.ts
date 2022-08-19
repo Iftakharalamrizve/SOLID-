@@ -24,7 +24,6 @@ class Item {
     }
 
     public getPrice(): number
-
     {
         return this.price;
     }
