@@ -1,5 +1,5 @@
 import { MultipleItemTypes } from './types';
-import Item from "./Item"
+import Item from "./types/Item"
 import ItemPriceCalculationService from './services/ItemPriceCalculationService';
 import CustomerPaymentService from './services/CustomerPaymentService';
 import CashPay from './models/CashPay';
