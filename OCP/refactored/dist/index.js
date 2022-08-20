@@ -18,8 +18,9 @@ class Output {
     }
     makeCustomerPayment(payMethod) {
         let totalPurchaseAmount = this.totalPurchasedAmount();
-        let customerPaymentService = new CustomerPaymentService_1.default();
-        return customerPaymentService.makePayment(payMethod, totalPurchaseAmount);
+        let customrePayType = payMethod;
+        let customerPaymentService = new CustomerPaymentService_1.default(customrePayType);
+        return customerPaymentService.makePayment(totalPurchaseAmount);
     }
 }
 exports.default = Output;

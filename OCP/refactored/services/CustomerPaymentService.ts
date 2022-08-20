@@ -1,20 +1,16 @@
-import Logger from "../logger/Loger";
-import Payment from "../models/PaymentModel";
+import PaymentInterface from "../Interface/PaymentInterface";
 
 class CustomerPaymentService {
+    private Payment : PaymentInterface;
 
-    public makePayment(payMethod: string, payAmount: number) 
+    constructor(Payment: PaymentInterface) 
     {
-        const payment = new Payment();
-        if (payMethod === 'cash') {
-            payment.payWithCash(payAmount);
-            Logger.info("Cash pay successfully  Completed");
-            return true;
-        } else if (payMethod === 'card') {
-            payment.payWithCredit(payAmount);
-            Logger.info("Card pay successfully  Completed");
-            return true;
-        }
+        this.Payment = Payment;
+    }
+
+    public makePayment(payAmount: number) 
+    {
+        this.Payment.pay(payAmount);
         return false;
     }
 
