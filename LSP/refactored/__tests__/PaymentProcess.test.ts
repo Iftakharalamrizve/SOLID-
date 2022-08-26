@@ -23,11 +23,15 @@ describe('Sell Store Module', () => {
     })
 
     it('checking payment process via card', () => {
+        let paymentMethodVarified = outputObj.customerPaymentTypeValidate(new CardPay,41414141414141414141);
+        expect(paymentMethodVarified).toBeTruthy;
         let paymentStatus: boolean = outputObj.makeCustomerPayment(new CardPay);
         expect(paymentStatus).toBeTruthy;
     });
 
     it('checking payment process via bkash', () => {
+        let paymentMethodVarified = outputObj.customerPaymentTypeValidate(new BkashPay,1686790963);
+        expect(paymentMethodVarified).toBeTruthy;
         let paymentStatus: boolean = outputObj.makeCustomerPayment(new BkashPay);
         expect(paymentStatus).toBeTruthy;
     })
